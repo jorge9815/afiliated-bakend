@@ -15,6 +15,7 @@ app.get("/clients", async (req, res) => {
     res.status(500).send("Error occurred");
   }
 });
+
 app.post("/client", async (req, res) => {
   console.log("Try to Create a New Client");
   console.log(req.body);
