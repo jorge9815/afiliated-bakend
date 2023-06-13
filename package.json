@@ -1,0 +1,33 @@
+{
+  "name": "afiliated-bakend",
+  "version": "1.0.0",
+  "description": "backend for the afiliated web",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorge9815/afiliated-bakend.git"
+  },
+  "keywords": [
+    "afiliated",
+    "market",
+    "api",
+    "amazon",
+    "sell",
+    "products"
+  ],
+  "author": "Jorge9815",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jorge9815/afiliated-bakend/issues"
+  },
+  "homepage": "https://github.com/jorge9815/afiliated-bakend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.2.4"
+  }
+}
