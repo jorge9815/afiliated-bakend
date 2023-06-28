@@ -1,24 +1,19 @@
-const app = require("../../../app");
+const PostDto = require("../../aplication/post_dto");
 const { logger } = require("../../wingston_logger");
+const service = require("../../aplication/services/create");
 
-app.post("/", async (req, res) => {
-  logger.info(`creating a new Post ${req.body.title}`);
-  const post = {
-    title: title,
-    author: author,
-    category: category,
-    body: body,
-    comments: comments,
-    date: date,
-    produts: produts,
-  };
+const createPost = async (req, res) => {
+  const { title, author, category, body, coments, products } = req.body;
+  logger.info(`creating a new Post with title: ${title}`);
+  const postDto = new PostDto(title, author, category, body, coments, products);
 
   try {
-    await repository.create(post);
-    console.log(`A new Post has ben Created`);
+    await service.create(postDto);
+    logger.info(`The Post with title: ${title} has ben created`);
     res.status(200).send("A new Post has ben Created.");
   } catch (error) {
-    console.log(error);
+    logger.error(error.toString());
     res.status(500).send("Error occurred");
   }
-});
+};
+module.exports = createPost;

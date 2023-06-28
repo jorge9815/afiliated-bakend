@@ -1,14 +1,14 @@
 module.exports = class PostDto {
-  constructor(title, author, category, body, comments, date, produts) {
+  constructor(title, author, category, body, comments, produts) {
     this.title = title;
     this.author = author;
     this.category = category;
     this.body = body;
     this.comments = comments;
-    this.date = date;
     this.produts = produts;
+    this.date = new Date();
   }
-  constructor(_id, title, author, category, body, coments, produts){
+  fromModel(_id, title, author, category, body, comments, produts, date) {
     this.title = title;
     this.author = author;
     this.category = category;
@@ -16,6 +16,6 @@ module.exports = class PostDto {
     this.comments = comments;
     this.produts = produts;
     this._id = _id;
+    this.date = date;
   }
-
 };
