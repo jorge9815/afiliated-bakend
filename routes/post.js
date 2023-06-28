@@ -3,6 +3,7 @@ const router = express.Router();
 
 const create = require("../post/infrastructure/controllers/create_post_controller");
 const findAll = require("../post/infrastructure/controllers/find_all_post_controller");
+const deletePost = require("../post/infrastructure/controllers/delete_post_controller");
 
 router.get("/", findAll);
 
@@ -12,6 +13,6 @@ router.post("/post", create);
 
 // router.put("/:productID", updateProduct);
 
-// router.delete("/:productID", deleteProduct);
+router.delete("/post", deletePost);
 
 module.exports = router;

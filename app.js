@@ -2,7 +2,7 @@ const express = require("express");
 const { logger } = require("./post/wingston_logger");
 const { APP_PORT } = require("./conf");
 const service = require("./post/aplication/services/connect");
-const routes = require("./routes/post");
+const post_routes = require("./routes/post");
 
 const app = express();
 app.use(express.json());
@@ -12,4 +12,4 @@ app.listen(APP_PORT, function () {
   service.make_conection();
 });
 
-app.use(routes);
+app.use(post_routes);

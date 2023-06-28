@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { logger } = require("../wingston_logger");
-
 const {
   BD_DATABASE,
   DB_HOST,
@@ -38,4 +37,33 @@ const fidnAll = async () => {
   }
 };
 
-module.exports = { connect, create, fidnAll };
+const deletePost = async (id) => {
+  try {
+    await Post.deleteOne({ _id: id });
+    logger.info(`The Post with ID: ${id} has been deleted.`);
+  } catch (e) {
+    logger.error(`Field to delete post with error: ${e.toString()}`);
+    console.log(e);
+  }
+};
+
+const update = async (post) => {
+  try {
+    Post.updatepdateOne(
+      { _id: `${post.id}` },
+      {
+        title: post.title,
+        author: post.author,
+        category: post.category,
+        body: post.body,
+        comments: post.comments,
+        produts: post.produts,
+        date: post.date,
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+module.exports = { connect, create, fidnAll, deletePost, update };
